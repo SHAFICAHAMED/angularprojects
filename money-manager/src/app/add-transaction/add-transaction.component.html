@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Add Transaction</h2>
+
+  <form (ngSubmit)="addTransaction()">
+    <input type="text" placeholder="Description" [(ngModel)]="description" name="desc" required />
+    <input type="number" placeholder="Amount" [(ngModel)]="amount" name="amount" required />
+    <select [(ngModel)]="type" name="type">
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+    <button type="submit">Add</button>
+  </form>
+</div>

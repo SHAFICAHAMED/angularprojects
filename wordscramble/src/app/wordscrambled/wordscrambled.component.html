@@ -1,0 +1,12 @@
+<div class="game-container">
+    <h2>🧩 Word Scramble Game</h2>
+  
+    <div class="scrambled-word">{{ scrambledWord }}</div>
+  
+    <input type="text" [(ngModel)]="userGuess" placeholder="Enter your guess" />
+    <button (click)="checkGuess()">Check</button>
+    <button (click)="generateNewWord()">New Word</button>
+  
+    <p class="result">{{ resultMessage }}</p>
+  </div>
+  

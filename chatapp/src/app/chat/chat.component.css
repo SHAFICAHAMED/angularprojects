@@ -1,0 +1,28 @@
+/* chat.component.css */
+.chat-box {
+    max-width: 400px;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 8px;
+  }
+  .messages {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+  }
+  .msg {
+    padding: 4px 0;
+    border-bottom: 1px solid #eee;
+  }
+  input {
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px;
+  }
+ .typing {
+  margin-top: 10px;
+  font-style: italic;
+  color: #555; /* Or change to black temporarily */
+}
+

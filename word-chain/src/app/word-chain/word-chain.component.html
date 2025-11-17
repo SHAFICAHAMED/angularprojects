@@ -1,0 +1,18 @@
+<div class="game-container">
+    <h1>Word Chain Game</h1>
+    <p>{{ message }}</p>
+  
+    <div *ngIf="!gameStarted">
+      <button (click)="startGame()">Start Game</button>
+    </div>
+  
+    <div *ngIf="gameStarted">
+      <input
+        [(ngModel)]="currentWord"
+        placeholder="Enter a word"
+        (keyup.enter)="submitWord()"
+      />
+      <button (click)="submitWord()">Submit</button>
+      <button (click)="resetGame()">Reset Game</button>
+    </div>
+  </div>

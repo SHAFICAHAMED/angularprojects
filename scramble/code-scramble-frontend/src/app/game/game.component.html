@@ -1,0 +1,29 @@
+<!-- game.component.html -->
+<div *ngIf="!username">
+  <input [(ngModel)]="username" placeholder="Enter your name" />
+  <button (click)="joinGame()">Join Game</button>
+</div>
+
+<div *ngIf="username">
+  <h2>Welcome, {{ username }}!</h2>
+
+  <div *ngIf="puzzle.lines.length > 0">
+    <h3>Code Puzzle:</h3>
+    <div *ngFor="let line of puzzle.lines; let i = index">
+      <input type="text" [(ngModel)]="puzzle.lines[i]" />
+    </div>
+
+    <button (click)="submitAnswer(puzzle.lines.join('\n'))">Submit Answer</button>
+  </div>
+
+  <div *ngIf="message">
+    <p>{{ message }}</p>
+  </div>
+
+  <h3>Leaderboard:</h3>
+  <ul>
+    <li *ngFor="let player of (leaderboard | keyvalue)">
+      {{ player.key }}: {{ player.value }} points
+    </li>
+  </ul>
+</div>

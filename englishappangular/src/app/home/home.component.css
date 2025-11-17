@@ -1,0 +1,15 @@
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .content {
+    text-align: center;
+    margin-top: 20px;
+  }
+  

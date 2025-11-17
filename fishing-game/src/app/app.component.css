@@ -1,0 +1,49 @@
+/* fishing-game.component.css */
+.game-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    padding: 20px;
+  }
+  
+  .fishing-controls {
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .fishing-indicator {
+    margin-top: 20px;
+    color: blue;
+  }
+  
+  .scoreboard {
+    margin-top: 30px;
+    font-size: 1.2em;
+  }
+  
+  .caught-fish {
+    margin-top: 20px;
+  }
+  
+  .fish-image {
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  .fish-image img {
+    width: 100px; /* Adjust the size of the fish */
+    height: auto;
+  }
+  

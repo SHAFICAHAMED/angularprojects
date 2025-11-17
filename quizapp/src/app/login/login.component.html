@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>Login</h2>
+    <form (ngSubmit)="login()">
+      <div class="mb-3">
+        <label>Username</label>
+        <input type="text" class="form-control" [(ngModel)]="user.username" name="username" required>
+      </div>
+      <div class="mb-3">
+        <label>Password</label>
+        <input type="password" class="form-control" [(ngModel)]="user.password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <p class="text-danger" *ngIf="message">{{ message }}</p>
+    </form>
+  
+    <button class="btn btn-link" routerLink="/register">Register</button>
+  </div>
+  

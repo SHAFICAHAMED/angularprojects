@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>🛍️ Product Management with Search & Filter</h2>
+
+  <!-- Add Product -->
+  <div class="form-section">
+    <h3>Add Product</h3>
+    <input type="text" [(ngModel)]="newProduct.name" placeholder="Name">
+    <input type="number" [(ngModel)]="newProduct.price" placeholder="Price">
+    <input type="text" [(ngModel)]="newProduct.description" placeholder="Description">
+    <button (click)="addProduct()">Add</button>
+  </div>
+
+  <hr>
+
+  <!-- Search + Filter -->
+  <div class="filter-section">
+    <h3>🔎 Search & Filter</h3>
+    <input type="text" [(ngModel)]="searchTerm" (input)="applyFilters()" placeholder="Search by name">
+    <input type="number" [(ngModel)]="minPrice" (input)="applyFilters()" placeholder="Min Price">
+    <input type="number" [(ngModel)]="maxPrice" (input)="applyFilters()" placeholder="Max Price">
+    <button (click)="clearFilters()">Clear</button>
+  </div>
+
+  <hr>
+
+  <!-- Product List -->
+  <div>
+    <h3>Product List</h3>
+    <table border="1" width="100%">
+      <tr>
+        <th>ID</th><th>Name</th><th>Price</th><th>Description</th><th>Actions</th>
+      </tr>
+      <tr *ngFor="let product of filteredProducts">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.description }}</td>
+        <td>
+          <button (click)="editProduct(product)">Edit</button>
+          <button (click)="deleteProduct(product.id)">Delete</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Edit Product -->
+  <div *ngIf="editingProduct" class="edit-section">
+    <h3>Edit Product</h3>
+    <input type="text" [(ngModel)]="editingProduct.name">
+    <input type="number" [(ngModel)]="editingProduct.price">
+    <input type="text" [(ngModel)]="editingProduct.description">
+    <button (click)="updateProduct()">Update</button>
+  </div>
+</div>

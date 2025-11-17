@@ -1,0 +1,71 @@
+<!-- <div class="chat-box">
+    <div class="messages">
+      <div *ngFor="let msg of messages" class="msg">
+        <strong>{{msg.sender}}:</strong> {{msg.content}}
+      </div>
+    </div>
+  
+    <input type="text" [(ngModel)]="username" placeholder="Your name" />
+    <input type="text" [(ngModel)]="message" (keydown.enter)="sendMessage()" placeholder="Type message" />
+  </div> -->
+  
+  <!-- <div class="chat-box">
+    <div class="status" [ngClass]="{'connected': connected, 'disconnected': !connected}">
+      {{ connected ? '✅ Connected to chat' : '🔄 Connecting to server...' }}
+    </div>
+  
+    <div class="messages">
+      <div *ngFor="let msg of messages" class="msg">
+        <strong>{{ msg.sender }}:</strong> {{ msg.content }}
+      </div>
+    </div>
+  
+    <input type="text" [(ngModel)]="username" placeholder="Your name" />
+    <input type="text" [(ngModel)]="message" (keydown.enter)="sendMessage()" placeholder="Type message" />
+    <button (click)="sendMessage()" [disabled]="!connected || !message || !username">Send</button>
+    
+    <input
+  type="text"
+  [(ngModel)]="message"
+  (keydown.enter)="sendMessage()"
+  (input)="onTyping()" 
+  placeholder="Type message"
+/>
+<div *ngIf="typingMsg" class="typing">{{ typingMsg }}</div>
+
+
+  </div> -->
+
+  <div class="chat-box">
+    <div class="status" [ngClass]="{'connected': connected, 'disconnected': !connected}">
+      {{ connected ? '✅ Connected to chat' : '🔄 Connecting to server...' }}
+    </div>
+  
+    <div class="messages">
+      <div *ngFor="let msg of messages" class="msg">
+        <strong>{{ msg.sender }}:</strong> {{ msg.content }}
+      </div>
+    </div>
+  
+    <input type="text" [(ngModel)]="username" placeholder="Your name" />
+   
+    
+ <input
+  type="text"
+  [(ngModel)]="message"
+  (keydown.enter)="sendMessage()"
+  (input)="onTyping()"
+  placeholder="Type message"
+/>
+<button (click)="sendMessage()" [disabled]="!connected || !message || !username">Send</button>
+
+
+<div *ngIf="typingMsg" class="typing" style="color: red; font-weight: bold;">
+  <p>🔥 TYPING MSG:</p>
+  {{ typingMsg }}
+</div>
+
+
+
+  </div>
+  

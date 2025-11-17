@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>Quiz Questions</h2>
+    <ul class="list-group">
+      <li *ngFor="let question of questions" class="list-group-item">
+        <h5>{{ question.text }}</h5>
+        <p><strong>Answer:</strong> {{ question.answer }}</p>
+      </li>
+    </ul>
+  </div>
+  

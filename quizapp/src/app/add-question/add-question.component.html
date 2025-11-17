@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>Add New Question</h2>
+    <form (ngSubmit)="addQuestion()">
+      <div class="mb-3">
+        <label>Question Text</label>
+        <input type="text" class="form-control" [(ngModel)]="newQuestion.text" name="text" required>
+      </div>
+      <div class="mb-3">
+        <label>Correct Answer</label>
+        <input type="text" class="form-control" [(ngModel)]="newQuestion.answer" name="answer" required>
+      </div>
+      <button type="submit" class="btn btn-success">Add Question</button>
+    </form>
+  </div>
+  

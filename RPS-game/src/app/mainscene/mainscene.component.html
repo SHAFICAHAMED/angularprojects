@@ -1,0 +1,19 @@
+<!-- app.component.html -->
+<div *ngIf="!playerName">
+    <input [(ngModel)]="playerName" placeholder="Enter your name" />
+    <button (click)="ws.connect()">Join Game</button>
+  </div>
+  
+  <div *ngIf="playerName">
+    <h2>Welcome, {{ playerName }}</h2>
+    <p>Choose your move:</p>
+    <button (click)="sendChoice('rock')">🪨 Rock</button>
+    <button (click)="sendChoice('paper')">📄 Paper</button>
+    <button (click)="sendChoice('scissors')">✂️ Scissors</button>
+  
+    <h3 *ngIf="moves.length">
+      {{ moves[0] }} vs {{ moves[1] }}
+    </h3>
+    <h2 *ngIf="result">{{ result }}</h2>
+  </div>
+  

@@ -1,0 +1,27 @@
+<div *ngIf="sentence" class="container mt-4">
+    <div class="card shadow-lg p-4">
+      <h2 class="text-center text-primary">Fill in the Blank</h2>
+  
+      <div class="d-flex justify-content-between">
+        <p class="fw-bold">Score: <span class="text-success">{{ score }}</span></p>
+      </div>
+  
+      <p class="lead text-center my-3">{{ sentence.sentence }}</p>
+  
+      <div class="input-group mb-3">
+        <input 
+          [(ngModel)]="userAnswer" 
+          class="form-control" 
+          placeholder="Your answer" 
+          aria-label="User Answer"
+        />
+        <button (click)="submitAnswer()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <p *ngIf="feedback" class="text-center fw-bold" 
+         [ngClass]="{ 'text-success': feedback.includes('Correct'), 'text-danger': feedback.includes('Try') }">
+        {{ feedback }}
+      </p>
+    </div>
+  </div>
+  

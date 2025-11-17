@@ -1,0 +1,21 @@
+<!-- fishing-game.component.html -->
+<div class="game-container">
+  <h1>Fishing Game</h1>
+
+  <div *ngIf="timeLeft > 0" class="game-timer">
+    <p>Time Left: {{ timeLeft }} seconds</p>
+  </div>
+
+  <div *ngIf="!isFishing" class="fishing-controls">
+    <button (click)="castLine()">Cast Line</button>
+  </div>
+
+  <div *ngIf="isFishing" class="fishing-indicator">
+    <p>Fishing...</p>
+  </div>
+
+  <div class="scoreboard">
+    <p>Fish Caught: {{ fishCaught }}</p>
+    <p>Total Score: {{ totalScore }}</p>
+  </div>
+</div>

@@ -1,0 +1,198 @@
+
+<!-- <div *ngIf="!joined" class="join-screen">
+  <h2>Enter your name to join the Game</h2>
+  <input [(ngModel)]="playerName" placeholder="Enter your name" />
+  <button (click)="joinGame()">Join Game</button> 
+</div>-->
+
+<!-- Show Game Area After Joining -->
+<!-- <div *ngIf="joined">
+  <h2>Arrange the Code Blocks</h2>
+  <h3>Welcome, {{ playerName }}</h3>
+  <h3>Timer Left: {{ timer }} seconds</h3> -->
+
+  <!-- Drag-Drop Zone -->
+  <!-- <div cdkDropList class="code-container" (cdkDropListDropped)="drop($event)">
+    <div
+      class="code-block"
+      *ngFor="let line of codeBlocks"
+      cdkDrag
+    >
+      {{ line }}
+    </div> 
+  </div>
+
+  
+  <button (click)="submitCode()">Submit Code</button>
+</div> -->
+
+<!-- Leaderboard -->
+<!-- <h2>🏆 Leaderboard</h2>
+<ul>
+  <li *ngFor="let player of leaderboard | keyvalue">
+    {{ player.value.name }}: {{ player.value.score }}
+  </li>
+</ul> -->
+
+
+<!-- add room match -->
+
+<!-- Show Join Screen -->
+ <!-- <input [(ngModel)]="roomId" placeholder="Enter yor roomId">
+ <button (click)="createRoom()">create Rooom</button>
+ <button (click)="joinRoom()">join </button>
+<div *ngIf="!joined" class="join-screen">
+  <h2>Enter your name to join the Game</h2>
+  <input [(ngModel)]="playerName" placeholder="Enter your name" />
+
+</div> -->
+
+<!-- Show Game Area After Joining -->
+<!-- <div *ngIf="joined">
+  <h2>Arrange the Code Blocks</h2>
+  <h3>Welcome, {{ playerName }}</h3>
+  <h3>Timer Left: {{ timer }} seconds</h3> -->
+
+  <!-- Drag-Drop Zone -->
+  <!-- <div cdkDropList class="code-container" (cdkDropListDropped)="drop($event)">
+    <div
+      class="code-block"
+      *ngFor="let line of codeBlocks"
+      cdkDrag
+    >
+      {{ line }}
+    </div>
+  </div>
+
+ 
+  <button (click)="submitCode()">Submit Code</button>
+</div> -->
+
+<!-- Leaderboard -->
+<!-- <h2>🏆 Leaderboard</h2>
+<ul>
+  <li *ngFor="let player of leaderboard | keyvalue">
+    {{ player.value.name }}: {{ player.value.score }}
+  </li>
+</ul> -->
+
+
+
+
+
+<div *ngIf="!joined" class="join-screen">
+  <h2>Enter your name to join the Game</h2>
+  <input [(ngModel)]="playerName" placeholder="Enter your name" />
+  <input [(ngModel)]="roomId" placeholder="Enter Room ID (optional)" />
+  <button (click)="createRoom()">Create Room</button>
+  <button (click)="joinRoom()">Join Room</button>
+ 
+</div>
+
+
+<div *ngIf="joined && !roundActive && codeBlocks.length === 0">
+  <h3>Welcome, {{ playerName }}</h3>
+
+  
+  <div *ngIf="roomId">
+    <p>Room ID: <strong>{{ roomId }}</strong></p>
+    <button (click)="startGame()">Start Game</button>
+  </div>
+  <p *ngIf="!roomId">Waiting for the host to start the game...</p>
+</div>
+
+
+<div *ngIf="joined && roundActive">
+  <h2>Arrange the Code Blocks</h2>
+  <h3>Timer Left: {{ timer }} seconds</h3>
+  <div class="progress-bar" [style.width.%]="(timer / 30) * 100"></div>
+
+
+
+  <div cdkDropList class="code-container" (cdkDropListDropped)="drop($event)">
+    <div class="code-block" *ngFor="let line of codeBlocks" cdkDrag>
+      {{ line }}
+    </div>
+  </div>
+
+  <button (click)="submitCode()">Submit Code</button>
+ <p [ngClass]="{'correct-msg': answerStatus === 'correct', 'wrong-msg': answerStatus === 'wrong'}">
+  {{ answers }}
+</p>
+
+</div>
+
+<!-- Leaderboard -->
+<!-- <div *ngIf="joined">
+  <h2>🏆 Leaderboard</h2>
+  <ul>
+    <li *ngFor="let player of leaderboard | keyvalue">
+      {{ player.value.name }}: {{ player.value.score }}
+    </li>
+  </ul>
+</div> -->
+
+<div *ngIf="joined">
+  <h2>🏆 Leaderboard</h2>
+  <ul>
+    <li *ngFor="let player of sortedLeaderboard">
+      {{ player.name }}: {{ player.score }}
+    </li>
+  </ul>
+</div>
+
+
+<!-- multiple language-->
+
+<!-- 
+<div *ngIf="!joined" class="join-screen">
+  <h2>Enter your name to join the Game</h2>
+  <input [(ngModel)]="playerName" placeholder="Enter your name" />
+  <input [(ngModel)]="roomId" placeholder="Enter Room ID (optional)" />
+
+  <label for="languageSelect">Choose Language:</label>
+  <select id="languageSelect" [(ngModel)]="selectedLanguage">
+    <option *ngFor="let lang of languageOptions" [value]="lang">{{ lang | uppercase }}</option>
+  </select>
+
+  <button (click)="createRoom()">Create Room</button>
+  <button (click)="joinRoom()">Join Room</button>
+</div>
+
+<div *ngIf="joined && !roundActive && codeBlocks.length === 0">
+  <h3>Welcome, {{ playerName }}</h3>
+  <div *ngIf="roomId">
+    <p>Room ID: <strong>{{ roomId }}</strong></p>
+   
+    <button (click)="startGame()">Start Game ({{ selectedLanguage | uppercase }})</button>
+  </div>
+  <p *ngIf="!roomId">Waiting for the host to start the game...</p>
+</div>
+
+<div *ngIf="joined && roundActive">
+  <h2>Arrange the Code Blocks</h2>
+  <h3>Timer Left: {{ timer }} seconds</h3>
+  <div class="progress-bar" [style.width.%]="(timer / 30) * 100"></div>
+
+  
+  <div cdkDropList class="code-container" (cdkDropListDropped)="drop($event)">
+    <div class="code-block" *ngFor="let line of codeBlocks" cdkDrag>
+      {{ line }}
+    </div>
+  </div>
+
+  <button (click)="submitCode()">Submit Code</button>
+  <p [ngClass]="{'correct-msg': answerStatus === 'correct', 'wrong-msg': answerStatus === 'wrong'}">
+    {{ answers }}
+  </p>
+</div>
+
+
+<div *ngIf="joined">
+  <h2>🏆 Leaderboard</h2>
+  <ul>
+    <li *ngFor="let player of sortedLeaderboard">
+      {{ player.name }}: {{ player.score }}
+    </li>
+  </ul>
+</div> -->

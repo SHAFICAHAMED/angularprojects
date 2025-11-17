@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>Transactions</h2>
+
+  <ul>
+    <li *ngFor="let t of transactions">
+      {{ t.description }} - ₹{{ t.amount }} ({{ t.type }})
+    </li>
+  </ul>
+</div>

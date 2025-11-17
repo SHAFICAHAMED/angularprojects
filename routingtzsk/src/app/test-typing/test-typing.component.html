@@ -1,0 +1,31 @@
+<div class="typing-test-container">
+  <h2>Typing Test</h2>
+  
+  <p class="sentence">
+    <span *ngFor="let char of currentSentence.split(''); let i = index" [ngClass]="getCharacterClass(i)">
+      {{ char }}
+    </span>
+  </p>
+
+  <input 
+    type="text" 
+    [(ngModel)]="userInput" 
+    (input)="onInputChange()" 
+    [disabled]="isTestComplete" 
+    placeholder="Start typing here..." 
+    />
+  
+    
+
+
+
+  <div class="controls">
+    <button (click)="setRandomSentence()">Start</button>
+    <button (click)="resetTest()">Reset</button>
+  </div>
+
+  <div *ngIf="isTestComplete">
+    <p>Time: {{ elapsedTime.toFixed(2) }} minutes</p>
+    <p>Speed: {{ wpm }} WPM</p>
+  </div>
+</div>

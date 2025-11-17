@@ -1,0 +1,46 @@
+<!-- User Details Card -->
+<div class="card shadow-lg">
+  <div class="card-body text-center">
+    <h2 class="card-title text-primary">Welcome, {{ user?.username }}</h2>
+    <p class="card-text"><strong>Role:</strong> {{ user?.role }}</p>
+
+    <button class="btn btn-warning mt-3" (click)="toggleEdit()">Edit Profile</button>
+    <button class="btn btn-danger mt-3 ms-2" (click)="logout()">Logout</button>
+  </div>
+<!-- Edit User Form -->
+<div *ngIf="isEditing" class="mt-4 p-3 border rounded">
+  <h4>Edit Profile</h4>
+  <form (submit)="updateUser()">
+    <label>Username:</label>
+    <input type="text" class="form-control" [(ngModel)]="user.username" name="username" required>
+
+    <label class="mt-2">Role:</label>
+    <input type="text" class="form-control" [(ngModel)]="user.role" name="role" required>
+
+    <button type="submit" class="btn btn-success mt-3">Save Changes</button>
+    <button type="button" class="btn btn-secondary mt-3 ms-2" (click)="toggleEdit()">Cancel</button>
+    <button type="button" class="btn btn-danger mt-3 ms-2" (click)="deleteUser()">delete</button>
+  </form>
+</div>
+
+  
+
+  <h3 class="mt-4 text-center">Registered Users</h3>
+  <table class="table table-bordered table-striped mt-3">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of users">
+        <td>{{ u.id }}</td>
+        <td>{{ u.username }}</td>
+        <td>{{ u.role }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- <app-vocabulary></app-vocabulary> -->

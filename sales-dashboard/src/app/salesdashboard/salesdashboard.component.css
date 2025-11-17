@@ -1,0 +1,10 @@
+.container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+  }
+  
+  canvas {
+    max-width: 100%;
+  }
+  
